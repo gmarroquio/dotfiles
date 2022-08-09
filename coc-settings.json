@@ -18,6 +18,7 @@
   "tsserver.tsdk": ".yarn/sdks/typescript/lib",
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": true,
   "suggest.autoTrigger": "always",
+  "clangd.compilationDatabasePath": ".",
   "suggest.completionItemKindLabels": {
     "keyword": "\uf1de",
     "variable": "\ue79b",

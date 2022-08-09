@@ -27,8 +27,18 @@ return require("packer").startup(function()
   use("morhetz/gruvbox") -- theme
   use("franbach/miramare") -- theme
   use("nvim-treesitter/nvim-treesitter-context")
+  use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'} -- fold 
 
   -- COC
   use({"neoclide/coc.nvim", branch = "release" })
-  
+
+
+  use({ 
+    "iamcco/markdown-preview.nvim",
+    run = "cd app && yarn install",
+    setup = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+    end,
+    ft = { "markdown" },
+  })
 end)
