@@ -79,42 +79,15 @@ _G.packer_plugins = {
     path = "/Users/jack/.local/share/nvim/site/pack/packer/start/Colorizer",
     url = "https://github.com/chrisbra/Colorizer"
   },
-  ["bufferline.nvim"] = {
-    loaded = true,
-    path = "/Users/jack/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
-    url = "https://github.com/akinsho/bufferline.nvim"
-  },
-  ["coc.nvim"] = {
-    loaded = true,
-    path = "/Users/jack/.local/share/nvim/site/pack/packer/start/coc.nvim",
-    url = "https://github.com/neoclide/coc.nvim"
-  },
   gruvbox = {
     loaded = true,
     path = "/Users/jack/.local/share/nvim/site/pack/packer/start/gruvbox",
     url = "https://github.com/morhetz/gruvbox"
   },
-  ["lazygit.nvim"] = {
-    loaded = true,
-    path = "/Users/jack/.local/share/nvim/site/pack/packer/start/lazygit.nvim",
-    url = "https://github.com/kdheepak/lazygit.nvim"
-  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/Users/jack/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
-  },
-  ["markdown-preview.nvim"] = {
-    loaded = false,
-    needs_bufread = false,
-    only_cond = false,
-    path = "/Users/jack/.local/share/nvim/site/pack/packer/opt/markdown-preview.nvim",
-    url = "https://github.com/iamcco/markdown-preview.nvim"
-  },
-  miramare = {
-    loaded = true,
-    path = "/Users/jack/.local/share/nvim/site/pack/packer/start/miramare",
-    url = "https://github.com/franbach/miramare"
   },
   ["null-ls.nvim"] = {
     loaded = true,
@@ -125,11 +98,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/jack/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
     url = "https://github.com/windwp/nvim-autopairs"
-  },
-  ["nvim-tree.lua"] = {
-    loaded = true,
-    path = "/Users/jack/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
-    url = "https://github.com/kyazdani42/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     loaded = true,
@@ -176,26 +144,6 @@ _G.packer_plugins = {
     path = "/Users/jack/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
-  ["toggleterm.nvim"] = {
-    loaded = true,
-    path = "/Users/jack/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
-    url = "https://github.com/akinsho/toggleterm.nvim"
-  },
-  ["typescript-vim"] = {
-    loaded = true,
-    path = "/Users/jack/.local/share/nvim/site/pack/packer/start/typescript-vim",
-    url = "https://github.com/leafgarland/typescript-vim"
-  },
-  ["vim-javascript"] = {
-    loaded = true,
-    path = "/Users/jack/.local/share/nvim/site/pack/packer/start/vim-javascript",
-    url = "https://github.com/pangloss/vim-javascript"
-  },
-  ["vim-jsx-typescript"] = {
-    loaded = true,
-    path = "/Users/jack/.local/share/nvim/site/pack/packer/start/vim-jsx-typescript",
-    url = "https://github.com/peitalin/vim-jsx-typescript"
-  },
   ["vim-styled-components"] = {
     loaded = true,
     path = "/Users/jack/.local/share/nvim/site/pack/packer/start/vim-styled-components",
@@ -204,17 +152,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Setup for: markdown-preview.nvim
-time([[Setup for markdown-preview.nvim]], true)
-try_loadstring("\27LJ\2\n=\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\2\0\0\rmarkdown\19mkdp_filetypes\6g\bvim\0", "setup", "markdown-preview.nvim")
-time([[Setup for markdown-preview.nvim]], false)
-vim.cmd [[augroup packer_load_aucmds]]
-vim.cmd [[au!]]
-  -- Filetype lazy-loads
-time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType markdown ++once lua require("packer.load")({'markdown-preview.nvim'}, { ft = "markdown" }, _G.packer_plugins)]]
-time([[Defining lazy-load filetype autocommands]], false)
-vim.cmd("augroup END")
 if should_profile then save_profiles() end
 
 end)
