@@ -1,3 +1,5 @@
+vim.opt.clipboard:append({ 'unnamedplus' })
+
 vim.opt.nu = true
 vim.opt.relativenumber = true
 vim.opt.signcolumn = "number"
@@ -19,7 +21,7 @@ vim.opt.foldcolumn = '1'
 vim.opt.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
 vim.opt.foldlevelstart = -1
 vim.opt.foldenable = true
-vim.opt.hlsearch = false 
+vim.opt.hlsearch = false
 
 --vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"*.json"}, command = "syntax match Comment +\\/\\/.\\+$+"})
 

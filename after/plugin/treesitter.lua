@@ -1,16 +1,11 @@
-require("nvim-treesitter.configs").setup({
-  -- A list of parser names, or "all"
-  ensure_installed = {"c", "typescript", "javascript", "json", "rust", "lua"}, 
+local status, ts = pcall(require, "nvim-treesitter.configs")
+if (not status) then return end
 
-  -- Install parsers synchronously (only applied to `ensure_installed`)
+ts.setup({
+  ensure_installed = { "c", "typescript", "javascript", "json", "rust", "lua", "go" },
   sync_install = false,
-
-  -- List of parsers to ignore installing (for "all")
-
   highlight = {
-    -- `false` will disable the whole extension
     enable = true,
-
     -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
     -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
     -- the name of the parser)

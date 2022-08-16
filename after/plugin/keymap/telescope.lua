@@ -1,4 +1,4 @@
-local Map = require("nbin.mapping")
+local Map = require("mapping")
 local inoremap = Map.inoremap
 local nnoremap = Map.nnoremap
 local vnoremap = Map.vnoremap
