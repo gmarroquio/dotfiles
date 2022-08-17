@@ -17,12 +17,10 @@ require("treesitter-context").setup({
       "switch",
       "case",
     },
-    
     rust = {
       "loop_expression",
       "impl_item",
     },
-    
     typescript = {
       "class_declaration",
       "abstract_class_declaration",

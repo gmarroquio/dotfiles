@@ -1,5 +1,5 @@
 local status, prettier = pcall(require, "prettier")
-if (not status) then return end
+if (not status) then print("Prettier not installed") return end
 
 prettier.setup({
   bin = 'prettierd',
@@ -17,17 +17,8 @@ prettier.setup({
     "typescriptreact",
     "yaml",
   },
-  bracket_spacing = true,
-  bracket_same_line = true,
-  single_quote = false,
-  trailing_comma = "all",
-  prettier.setup({
-    ["null-ls"] = {
-      runtime_condition = function(params)
-        -- return false to skip running prettier
-        return true
-      end,
-      timeout = 5000,
-    }
-  })
+  -- bracket_spacing = true,
+  -- bracket_same_line = true,
+  -- single_quote = false,
+  -- trailing_comma = "all",
 })

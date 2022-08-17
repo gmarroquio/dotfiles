@@ -29,7 +29,6 @@ packer.startup(function(use)
   use({ 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }) -- fold
   use({ 'kyazdani42/nvim-tree.lua' })
   use('L3MON4D3/LuaSnip')
-  use('onsails/lspkind-nvim')
   use('hrsh7th/cmp-buffer')
   use('hrsh7th/cmp-nvim-lsp')
   use('hrsh7th/nvim-cmp')
