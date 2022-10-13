@@ -1,23 +1,49 @@
 local status, ts = pcall(require, "nvim-treesitter.configs")
 if (not status) then return end
 
-ts.setup({
-  ensure_installed = { "c", "typescript", "javascript", "json", "rust", "lua", "go" },
-  sync_install = false,
+ts.setup {
   highlight = {
     enable = true,
-    -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
-    -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
-    -- the name of the parser)
-    -- list of language that will be disabled
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    -- Instead of true it can also be a list of languages
+    disable = {},
     additional_vim_regex_highlighting = false,
-    },
+  },
+  indent = {
+    enable = true,
+    disable = {},
+  },
+  context_commentstring = {
+    enable = true
+  },
+  ensure_installed = {
+    "tsx",
+    "toml",
+    "fish",
+    "php",
+    "json",
+    "yaml",
+    "swift",
+    "css",
+    "html",
+    "lua",
+    "typescript",
+    "javascript",
+    "prisma",
+    "c",
+    "rust",
+    "go"
+  },
+  sync_install = false,
   autotag = {
     enable = true,
-    filetypes = { "html" , "xml", "tsx" },
-  }
-})
+  },
+  rainbow = {
+    enable = true,
+    extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
+    max_file_lines = 1000, -- Do not enable for files with more than 1000 lines, int
+  },
+
+
+}
+
+local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+parser_config.tsx.filetype_to_parsername = { "javascript", "typescript.tsx", "typescript", "typescriptreact" }
