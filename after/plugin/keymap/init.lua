@@ -2,8 +2,6 @@ local Map = require("mapping")
 local inoremap = Map.inoremap
 local nnoremap = Map.nnoremap
 local vnoremap = Map.vnoremap
-local tnoremap = Map.tnoremap
-local map = Map.map
 
 inoremap("<C-s>", "<Esc>:w<CR>")
 vnoremap("<C-s>", "<Esc>:w<CR>")
@@ -14,11 +12,11 @@ vnoremap("K", ":move '<lt>-2<CR>gv-gv", { silent = true })
 nnoremap("<leader>q", ":q!<CR>", { silent = true })
 nnoremap("<leader>Nh", ":noh<CR>", { silent = true })
 nnoremap("<leader>Nc", ":e ~/.config/nvim/init.lua<CR>", { silent = true })
+nnoremap("<leader>s", ":PackerSync<CR>")
 vnoremap("<leader>y", '"*y', { silent = true })
 vnoremap("<leader>p", '"*p', { silent = true })
-
 -- tmux 
-nnoremap("<leader>t", ":!tmux source ~/.tmux.conf<CR>")
+nnoremap("<leader>x", ":!tmux source ~/.tmux.conf<CR>")
 -- tmux end
 
 -- Highlight syntax
@@ -37,6 +35,4 @@ nnoremap("sv", ":vsplit<CR><C-w>w") -- open a vertical split window
 
 -- Tab
 nnoremap("te", ":tabedit<CR>", { silent = true }) -- open new tab
-nnoremap("<leader>.", ":tabnext<CR>", { silent = true}) -- go to next tab
-nnoremap("<leader>,", ":tabprevious<CR>", { silent = true}) -- go to previous tab
 -- Tab end

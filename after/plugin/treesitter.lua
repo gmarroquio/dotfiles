@@ -15,5 +15,9 @@ ts.setup({
     -- Using this option may slow down your editor, and you may see some duplicate highlights.
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
-  },
+    },
+  autotag = {
+    enable = true,
+    filetypes = { "html" , "xml", "tsx" },
+  }
 })
