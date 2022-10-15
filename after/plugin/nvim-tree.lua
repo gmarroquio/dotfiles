@@ -118,7 +118,7 @@ tree.setup({
   },
   filesystem_watchers = {
     enable = false,
-    debounce_delay = 100,
+    -- debounce_delay = 100,
   },
   git = {
     enable = true,

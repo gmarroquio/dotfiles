@@ -134,6 +134,7 @@ lsp.sumneko_lua.setup({
   },
 })
 
+lsp.tailwindcss.setup {}
 lsp.prismals.setup({})
 
 -- lsp.spectral.setup({
