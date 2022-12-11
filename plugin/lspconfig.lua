@@ -54,10 +54,10 @@ local on_attach = function(client, bufnr)
   local opts = { noremap = true, silent = true }
 
   -- See `:help vim.lsp.*` for documentation on any of the below functions
-  buf_set_keymap('n', 'gD', ':lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', 'gd', ':lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'gi', ':lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', 'K', ':lua vim.lsp.buf.hover()<CR>', opts)
+  -- buf_set_keymap('n', 'gD', ':lua vim.lsp.buf.declaration()<CR>', opts)
+  -- buf_set_keymap('n', 'gd', ':lua vim.lsp.buf.definition()<CR>', opts)
+  -- buf_set_keymap('n', 'gi', ':lua vim.lsp.buf.implementation()<CR>', opts)
+  -- buf_set_keymap('n', 'K', ':lua vim.lsp.buf.hover()<CR>', opts)
 
   -- formatting
   if client.server_capabilities.documentFormattingProvider then
@@ -96,28 +96,16 @@ protocol.CompletionItemKind = {
   '', -- TypeParameter
 }
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(
+local capabilities = require('cmp_nvim_lsp').default_capabilities(
   vim.lsp.protocol.make_client_capabilities()
 )
 
 lsp.tsserver.setup({
   on_attach = on_attach,
-  filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+  filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript", "javascriptreact" },
   cmd = { "typescript-language-server", "--stdio" },
   capabilities = capabilities
 })
-
-vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics,
-    {
-        underline = true,
-        virtual_text = {
-            spacing = 5,
-            severity_limit = 'Warning',
-        },
-        update_in_insert = true,
-    }
-)
 
 lsp.sumneko_lua.setup({
   on_attach = on_attach,

@@ -3,6 +3,7 @@ local inoremap = Map.inoremap
 local nnoremap = Map.nnoremap
 local vnoremap = Map.vnoremap
 
+vnoremap("p", '<Nop>', { silent = true })
 inoremap("<C-s>", "<Esc>:w<CR>")
 vnoremap("<C-s>", "<Esc>:w<CR>")
 nnoremap("<C-s>", ":w<CR>")
@@ -13,8 +14,9 @@ nnoremap("<leader>q", ":q!<CR>", { silent = true })
 nnoremap("<leader>Nh", ":noh<CR>", { silent = true })
 nnoremap("<leader>Nc", ":e ~/.config/nvim/init.lua<CR>", { silent = true })
 nnoremap("<leader>s", ":PackerSync<CR>")
-vnoremap("<leader>y", '"*y', { silent = true })
-vnoremap("<leader>p", '"*p', { silent = true })
+-- vnoremap("<leader>y", '"*y', { silent = true })
+-- vnoremap("<leader>p", '"*p', { silent = true })
+vnoremap("p", '"_dP', { silent = true })
 -- tmux 
 nnoremap("<leader>x", ":!tmux source ~/.tmux.conf<CR>")
 -- tmux end

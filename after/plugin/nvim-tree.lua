@@ -1,5 +1,9 @@
 local status, tree = pcall(require, "nvim-tree")
+local sorting      = require("sorting")
+
 if (not status) then return end
+
+
 
 tree.setup({
   auto_reload_on_write = true,
@@ -12,7 +16,7 @@ tree.setup({
   open_on_setup = false,
   open_on_setup_file = false,
   open_on_tab = false,
-  sort_by = "name",
+  sort_by = sorting,
   update_cwd = true,
   reload_on_bufenter = false,
   respect_buf_cwd = true,
@@ -30,7 +34,8 @@ tree.setup({
     mappings = {
       custom_only = false,
       list = {
-        -- user mappings go here
+        { key = "D", action = "remove"},
+        { key = "d", action = "trash"}
       },
     },
   },
@@ -118,7 +123,7 @@ tree.setup({
   },
   filesystem_watchers = {
     enable = false,
-    -- debounce_delay = 100,
+    debounce_delay = 100,
   },
   git = {
     enable = true,

@@ -24,11 +24,13 @@ vim.opt.foldenable = true
 vim.opt.hlsearch = false
 
 local rememberId = vim.api.nvim_create_augroup("remember_folds", {clear = true})
+
 vim.api.nvim_create_autocmd('BufWinLeave', {
   command = "mkview",
   pattern = "*.*",
   group = rememberId
 })
+
 vim.api.nvim_create_autocmd("BufWinEnter", {
   command = "loadview",
   pattern = "*.*",
@@ -37,6 +39,3 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 
 vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"*.json"}, command = "syntax match Comment +\\/\\/.\\+$+"})
 
---let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
---let g:loaded_matchparen = 1
---let g:colorizer_auto_color = 1

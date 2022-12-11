@@ -1,8 +1,6 @@
 local Map = require("mapping")
 local nnoremap = Map.nnoremap
 
-nnoremap("b>", ":BufferLineMoveNext<CR>", { silent = true })
-nnoremap("b<", ":BufferLineMovePrev<CR>", { silent = true })
 nnoremap("<leader>.", ":BufferLineCycleNext<CR>", { silent = true })
 nnoremap("<leader>,", ":BufferLineCyclePrev<CR>", { silent = true })
 nnoremap("gb", ":BufferLinePick<CR>", { silent = true })
@@ -19,3 +17,5 @@ nnoremap("\\9", ":BufferLineGoToBuffer 9<CR>", { silent = true })
 nnoremap("<leader>c", ":bp<bar>sp<bar>bn<bar>bd<CR>", { silent = true })
 nnoremap("<leader>bh", ":BufferLineCloseLeft<CR>", { silent = true })
 nnoremap("<leader>bl", ":BufferLineCloseRight<CR>", { silent = true })
+nnoremap("<leader>b.", ":BufferLineMoveNext<CR>", { silent = true })
+nnoremap("<leader>b,", ":BufferLineMovePrev<CR>", { silent = true })
