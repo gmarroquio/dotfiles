@@ -1,14 +1,6 @@
 local status, map = pcall(require, "core.mapping")
 if (not status) then return end
 
-local mason_status, mason = pcall(require, "mason")
-if (not mason_status) then return end
-mason.setup()
-
-require("mason-lspconfig").setup({
-  ensure_installed = { "sumneko_lua" }
-})
-
 local lsp_status, lsp = pcall(require, "lspconfig")
 if (not lsp_status) then
   return
@@ -55,9 +47,8 @@ local protocol = require("vim.lsp.protocol")
 local on_attach = function(client, bufnr)
   if client.server_capabilities.documentFormattingProvider then
     vim.api.nvim_create_autocmd("BufWritePre", {
-      group = vim.api.nvim_create_augroup("Format", { clear = true }),
       buffer = bufnr,
-      callback = function(p) print(p) vim.lsp.buf.format() end,
+      callback = function() format({ name = 'null-ls', bufnr = bufnr }) end
     })
   end
 end

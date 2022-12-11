@@ -3,7 +3,7 @@ local ensure_packer = function()
   local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
   if fn.empty(fn.glob(install_path)) > 0 then
     fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
-    vim.cmd("packadd packer.nvim")
+    -- vim.cmd("packadd packer.nvim")
     return true
   end
   return false
@@ -36,11 +36,9 @@ return require('packer').startup(function(use)
   use('tpope/vim-surround')
   use('prichrd/netrw.nvim') -- tree file
 
-  use {
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
+  use({
     "neovim/nvim-lspconfig",
-  }
+  })
   use('L3MON4D3/LuaSnip')
   use('hrsh7th/cmp-buffer')
   use('hrsh7th/cmp-nvim-lsp')
