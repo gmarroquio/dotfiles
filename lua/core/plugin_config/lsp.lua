@@ -1,5 +1,16 @@
-local status, lsp = pcall(require, "lspconfig")
-if (not status) then
+local status, map = pcall(require, "core.mapping")
+if(not status) then return end
+
+local mason_status, mason = pcall(require, "mason")
+if(not mason_status) then return end
+mason.setup()
+
+require("mason-lspconfig").setup({
+  ensure_installed = { "sumneko_lua" }
+})
+
+local lsp_status, lsp = pcall(require, "lspconfig")
+if (not lsp_status) then
   return
 end
 
@@ -43,21 +54,11 @@ end
 local protocol = require("vim.lsp.protocol")
 
 local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
   --Enable completion triggered by <c-x><c-o>
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  -- Mappings.
-  local opts = { noremap = true, silent = true }
-
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  -- buf_set_keymap('n', 'gD', ':lua vim.lsp.buf.declaration()<CR>', opts)
-  -- buf_set_keymap('n', 'gd', ':lua vim.lsp.buf.definition()<CR>', opts)
-  -- buf_set_keymap('n', 'gi', ':lua vim.lsp.buf.implementation()<CR>', opts)
-  -- buf_set_keymap('n', 'K', ':lua vim.lsp.buf.hover()<CR>', opts)
 
   -- formatting
   if client.server_capabilities.documentFormattingProvider then
@@ -100,6 +101,11 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities(
   vim.lsp.protocol.make_client_capabilities()
 )
 
+lsp.sumneko_lua.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
 lsp.tsserver.setup({
   on_attach = on_attach,
   filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript", "javascriptreact" },
@@ -107,41 +113,18 @@ lsp.tsserver.setup({
   capabilities = capabilities
 })
 
-lsp.sumneko_lua.setup({
-  on_attach = on_attach,
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = { 'vim' },
-      },
-      workspace = {
-        library = vim.api.nvim_get_runtime_file("", true),
-        checkThirdParty = false
-      },
-    },
-  },
-})
+local opts = { silent = true }
 
-lsp.tailwindcss.setup {}
-lsp.prismals.setup({})
-
--- lsp.spectral.setup({
---   cmd = { "spectral", "lint" },
---   filetypes = {"json", "yaml", "yml"},
---   settings = {
---     enable = true,
---     run = "onType",
---     validateLanguages = { "yaml", "json", "yml" }
---   }
--- })
-
-lsp.jsonls.setup({})
-lsp.yamlls.setup({
-  settings = {
-    yaml = {
-      schemas = {
-        ["/Users/jack/.config/nbin/schemas/openapi/v3.0/schema.yaml"] = "/*.api.yaml"
-      }
-    }
-  }
-})
+map.nnoremap("gj", vim.diagnostic.goto_next, opts)
+map.nnoremap("gk", vim.diagnostic.goto_prev, opts)
+map.nnoremap("<leader>d", "<cmd>Telescope diagnostics<CR>", opts)
+map.nnoremap("ge", vim.diagnostic.open_float, opts)
+map.nnoremap("gi", "<cmd>Telescope lsp_implementation<CR>", opts)
+map.nnoremap("gd", "<cmd>Telescope lsp_definitions<CR>", opts)
+map.nnoremap("gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
+map.nnoremap("gr", "<cmd>Telescope lsp_references<CR>", opts)
+map.nnoremap("<leader>a", vim.lsp.buf.code_action, opts)
+map.nnoremap("<leader>rn", vim.lsp.buf.rename, opts)
+map.nnoremap("K", vim.lsp.buf.hover, opts)
+-- map.nnoremap("<C-j>", "<cmd>Telescope lsp_document_symbols<CR>", opts)
+-- map.nnoremap("<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)

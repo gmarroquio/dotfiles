@@ -16,6 +16,7 @@ prettier.setup({
     "typescript",
     "typescriptreact",
     "yaml",
+    "lua",
   },
   -- bracket_spacing = true,
   -- bracket_same_line = true,

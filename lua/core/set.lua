@@ -7,6 +7,7 @@ vim.opt.wrap = false
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
+vim.opt.shiftround = true
 vim.opt.mouse = "a"
 vim.opt.equalalways = false
 vim.opt.ignorecase = true
@@ -22,6 +23,11 @@ vim.opt.foldlevel = 99 -- Using ufo provider need a large value, feel free to de
 vim.opt.foldlevelstart = -1
 vim.opt.foldenable = true
 vim.opt.hlsearch = false
+vim.opt.backspace = '2'
+vim.opt.showcmd = true
+vim.opt.laststatus = 2
+vim.opt.autowrite = true
+vim.opt.autoread = true
 
 local rememberId = vim.api.nvim_create_augroup("remember_folds", {clear = true})
 
@@ -39,3 +45,9 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 
 vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"*.json"}, command = "syntax match Comment +\\/\\/.\\+$+"})
 
+--local removeNetrwHidden = vim.api.nvim_create_augroup("remove_netrw", {clear = true})
+-- 
+--vim.api.nvim_create_autocmd({"FileType", "netrw"}, {
+--   command = "setloacl bufhidden=wipe",
+--   group = removeNetrwHidden
+--})

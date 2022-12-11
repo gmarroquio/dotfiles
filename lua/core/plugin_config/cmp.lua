@@ -215,7 +215,7 @@ cmp.setup({
   }),
   sources = {
     { name = "nvim_lsp" },
-    -- { name = "path" },
+    { name = "path" },
     { name = "luasnip" },
     -- { name = "cmp_tabnine" },
     -- { name = "nvim_lua" },
