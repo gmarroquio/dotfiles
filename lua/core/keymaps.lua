@@ -16,9 +16,13 @@ nnoremap("<leader>q", ":q!<CR>", opt)
 nnoremap("<leader>Nh", ":noh<CR>", opt)
 nnoremap("<leader>Nc", ":e ~/.config/nvim/init.lua<CR>", opt)
 nnoremap("<leader>s", ":PackerSync<CR>")
-vnoremap("p",'"_dP', opt)
+vnoremap("p", '"_dP', opt)
 
--- tmux 
+-- netrw
+-- nnoremap("<leader>e", ":Lexplore<CR>", opt)
+-- netrw end
+
+-- tmux
 nnoremap("<leader>x", ":!tmux source ~/.tmux.conf<CR>")
 -- tmux end
 

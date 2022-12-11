@@ -45,9 +45,9 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 
 vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"*.json"}, command = "syntax match Comment +\\/\\/.\\+$+"})
 
---local removeNetrwHidden = vim.api.nvim_create_augroup("remove_netrw", {clear = true})
--- 
---vim.api.nvim_create_autocmd({"FileType", "netrw"}, {
---   command = "setloacl bufhidden=wipe",
---   group = removeNetrwHidden
---})
+local removeNetrwHidden = vim.api.nvim_create_augroup("remove_netrw", {clear = true})
+
+vim.api.nvim_create_autocmd("FileType", {
+  command = "setlocal bufhidden=wipe",
+  group = removeNetrwHidden
+})

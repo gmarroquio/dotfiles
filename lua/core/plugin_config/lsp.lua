@@ -1,8 +1,8 @@
 local status, map = pcall(require, "core.mapping")
-if(not status) then return end
+if (not status) then return end
 
 local mason_status, mason = pcall(require, "mason")
-if(not mason_status) then return end
+if (not mason_status) then return end
 mason.setup()
 
 require("mason-lspconfig").setup({
@@ -15,7 +15,6 @@ if (not lsp_status) then
 end
 
 local function format(opts)
-
   if vim.lsp.buf.format then
     return vim.lsp.buf.format(opts)
   end
@@ -54,17 +53,11 @@ end
 local protocol = require("vim.lsp.protocol")
 
 local on_attach = function(client, bufnr)
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
-  --Enable completion triggered by <c-x><c-o>
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-
-  -- formatting
   if client.server_capabilities.documentFormattingProvider then
     vim.api.nvim_create_autocmd("BufWritePre", {
+      group = vim.api.nvim_create_augroup("Format", { clear = true }),
       buffer = bufnr,
-      callback = function() format({ name = 'null-ls', bufnr = bufnr }) end
+      callback = function(p) print(p) vim.lsp.buf.format() end,
     })
   end
 end
@@ -101,10 +94,21 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities(
   vim.lsp.protocol.make_client_capabilities()
 )
 
-lsp.sumneko_lua.setup {
+lsp.sumneko_lua.setup({
   on_attach = on_attach,
-  capabilities = capabilities,
-}
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { 'vim' },
+      },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file("", true),
+        checkThirdParty = false
+      },
+    },
+  },
+  capabilities = capabilities
+})
 
 lsp.tsserver.setup({
   on_attach = on_attach,
