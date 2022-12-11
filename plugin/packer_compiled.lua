@@ -74,11 +74,6 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ["42header"] = {
-    loaded = true,
-    path = "/Users/jack/.local/share/nvim/site/pack/packer/start/42header",
-    url = "https://github.com/42Paris/42header"
-  },
   Colorizer = {
     loaded = true,
     path = "/Users/jack/.local/share/nvim/site/pack/packer/start/Colorizer",
@@ -246,11 +241,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/jack/.local/share/nvim/site/pack/packer/start/vim-prisma",
     url = "https://github.com/pantharshit00/vim-prisma"
-  },
-  ["vim-styled-components"] = {
-    loaded = true,
-    path = "/Users/jack/.local/share/nvim/site/pack/packer/start/vim-styled-components",
-    url = "https://github.com/styled-components/vim-styled-components"
   },
   ["vim-surround"] = {
     loaded = true,
