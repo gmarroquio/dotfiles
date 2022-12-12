@@ -17,7 +17,7 @@ telescope.setup{
       },
     }
 
---telescope.load_extension("ui-select")
+-- telescope.load_extension("ui-select")
 
 nnoremap("<leader>f", ":Telescope find_files<cr>")
 nnoremap("<leader>g", ":Telescope live_grep<cr>")

@@ -19,7 +19,7 @@ nnoremap("<leader>s", ":PackerSync<CR>")
 vnoremap("p", '"_dP', opt)
 
 -- netrw
--- nnoremap("<leader>e", ":Lexplore<CR>", opt)
+nnoremap("<leader>e", ":Explore<CR>", opt)
 -- netrw end
 
 -- tmux
@@ -37,8 +37,8 @@ nnoremap("sv", ":vsplit<CR><C-w>w", opt) -- open a vertical split window
 
 -- Tab
 nnoremap("te", ":tabedit<CR>", opt) -- open new tab
-nnoremap("<leader>.", ":tabNext<CR>", opt) -- open new tab
-nnoremap("<leader>,", ":tabprevious:tabclose<CR><CR>", opt) -- open new tab
+nnoremap("<leader>.", ":tabnext<CR>", opt) -- open new tab
+nnoremap("<leader>,", ":tabprevious<CR>", opt) -- open new tab
 nnoremap("<leader>c", ":tabclose<CR>", opt)
 -- Tab end
 

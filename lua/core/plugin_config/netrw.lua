@@ -18,3 +18,5 @@ netrw.setup{
     end
   }, -- Custom key mappings
 }
+
+
