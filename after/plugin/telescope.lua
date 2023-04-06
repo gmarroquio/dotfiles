@@ -13,9 +13,19 @@ telescope.setup{
       }, -- n
       i = {
         ["<C-h>"] = "which_key",
-        ['<c-d>'] = require('telescope.actions').delete_buffer}}
-      },
+        ['<c-d>'] = require('telescope.actions').delete_buffer
+      }
     }
+  },
+  pickers = {
+    buffers = {
+      initial_mode = "normal"
+    },
+    lsp_references = {
+      initial_mode = "normal"
+    }
+  }
+}
 
 -- telescope.load_extension("ui-select")
 
@@ -24,3 +34,4 @@ nnoremap("<leader>g", ":Telescope live_grep<cr>")
 nnoremap("<leader>b", ":Telescope buffers<cr>")
 nnoremap("<leader>h", ":Telescope help_tags<cr>")
 nnoremap("<leader>p", ":Telescope projects<cr>")
+nnoremap("<leader>t", ":TodoTelescope<cr>")

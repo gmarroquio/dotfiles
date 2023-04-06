@@ -1,5 +1,8 @@
 vim.opt.clipboard:append({ 'unnamedplus' })
 
+local color = "colorscheme gruvbox"
+local transparentBackground = "hi Normal ctermbg=none guibg=none"
+
 vim.opt.nu = true
 vim.opt.relativenumber = true
 vim.opt.signcolumn = "number"
@@ -16,8 +19,8 @@ vim.opt.colorcolumn = "80"
 vim.opt.cursorline = true
 vim.g.mapleader = " "
 vim.g.airline_theme = "gruvbox"
-vim.cmd("colorscheme gruvbox")
-vim.cmd("hi Normal ctermbg=none guibg=none")
+vim.cmd(color)
+vim.cmd(transparentBackground)
 vim.opt.foldcolumn = '1'
 vim.opt.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
 vim.opt.foldlevelstart = -1
@@ -29,19 +32,19 @@ vim.opt.laststatus = 2
 vim.opt.autowrite = true
 vim.opt.autoread = true
 
-local rememberId = vim.api.nvim_create_augroup("remember_folds", {clear = true})
-
-vim.api.nvim_create_autocmd('BufWinLeave', {
-  command = "mkview",
-  pattern = "*.*",
-  group = rememberId
-})
-
-vim.api.nvim_create_autocmd("BufWinEnter", {
-  command = "loadview",
-  pattern = "*.*",
-  group = rememberId
-})
+-- local rememberId = vim.api.nvim_create_augroup("remember_folds", {clear = true})
+--
+-- vim.api.nvim_create_autocmd('BufWinLeave', {
+--   command = "mkview",
+--   pattern = "*.*",
+--   group = rememberId
+-- })
+--
+-- vim.api.nvim_create_autocmd("BufWinEnter", {
+--   command = "loadview",
+--   pattern = "*.*",
+--   group = rememberId
+-- })
 
 vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"*.json"}, command = "syntax match Comment +\\/\\/.\\+$+"})
 

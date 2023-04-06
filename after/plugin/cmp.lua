@@ -241,7 +241,7 @@ cmp.setup({
   },
 })
 
-vim.cmd [[
-  set completeopt=menuone,noinsert,noselect
-  highlight! default link CmpItemKind CmpItemMenuDefault
-]]
+local comando1 = "set completeopt=menuone,noinsert,noselect"
+local comando2 = "highlight! default link CmpItemKind CmpItemMenuDefault"
+vim.cmd(comando1)
+vim.cmd(comando2)
