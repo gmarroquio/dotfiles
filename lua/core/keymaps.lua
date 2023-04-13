@@ -5,10 +5,10 @@ local vnoremap = Map.vnoremap
 
 local opt = { silent = true }
 
-vnoremap("p", '<Nop>', opt)
-inoremap("<C-s>", "<Esc>:w<CR>")
-vnoremap("<C-s>", "<Esc>:w<CR>")
-nnoremap("<C-s>", ":w<CR>")
+vnoremap("p", "<Nop>", opt)
+inoremap("<C-s>", "<Esc>:w<CR>", opt)
+vnoremap("<C-s>", "<Esc>:w<CR>", opt)
+nnoremap("<C-s>", ":w<CR>", opt)
 nnoremap("<leader>i", "i_<Esc>r")
 vnoremap("J", ":move '>+1<CR>gv-gv", opt)
 vnoremap("K", ":move '<lt>-2<CR>gv-gv", opt)

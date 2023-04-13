@@ -1,4 +1,4 @@
-vim.opt.clipboard:append({ 'unnamedplus' })
+vim.opt.clipboard:append({ "unnamedplus" })
 
 local color = "colorscheme gruvbox"
 local transparentBackground = "hi Normal ctermbg=none guibg=none"
@@ -21,37 +21,37 @@ vim.g.mapleader = " "
 vim.g.airline_theme = "gruvbox"
 vim.cmd(color)
 vim.cmd(transparentBackground)
-vim.opt.foldcolumn = '1'
+vim.opt.foldcolumn = "1"
 vim.opt.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
 vim.opt.foldlevelstart = -1
 vim.opt.foldenable = true
 vim.opt.hlsearch = false
-vim.opt.backspace = '2'
+vim.opt.backspace = "2"
 vim.opt.showcmd = true
 vim.opt.laststatus = 2
 vim.opt.autowrite = true
 vim.opt.autoread = true
 
--- local rememberId = vim.api.nvim_create_augroup("remember_folds", {clear = true})
+-- local rememberId = vim.api.nvim_create_augroup("remember_folds", { clear = true })
 --
--- vim.api.nvim_create_autocmd('BufWinLeave', {
---   command = "mkview",
---   pattern = "*.*",
---   group = rememberId
+-- vim.api.nvim_create_autocmd("BufWinLeave", {
+-- 	command = "mkview",
+-- 	pattern = "*.*",
+-- 	group = rememberId,
 -- })
 --
 -- vim.api.nvim_create_autocmd("BufWinEnter", {
---   command = "loadview",
---   pattern = "*.*",
---   group = rememberId
+-- 	command = "loadview",
+-- 	pattern = "*.*",
+-- 	group = rememberId,
 -- })
 
-vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"*.json"}, command = "syntax match Comment +\\/\\/.\\+$+"})
+vim.api.nvim_create_autocmd({ "FileType" }, { pattern = { "*.json" }, command = "syntax match Comment +\\/\\/.\\+$+" })
 
 vim.g.netrw_fastbrowse = 0
 
 -- local removeNetrwHidden = vim.api.nvim_create_augroup("remove_netrw", {clear = true})
--- 
+--
 -- vim.api.nvim_create_autocmd("FileType", {
 --   command = "setlocal bufhidden=wipe",
 --   group = removeNetrwHidden
