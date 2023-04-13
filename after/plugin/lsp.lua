@@ -125,3 +125,5 @@ lsp.tsserver.setup({
 	cmd = { "typescript-language-server", "--stdio" },
 	capabilities = capabilities,
 })
+
+lsp.tailwindcss.setup({})
