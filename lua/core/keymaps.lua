@@ -41,7 +41,14 @@ nnoremap("<leader>,", ":tabprevious<CR>", opt) -- open new tab
 -- Tab end
 
 -- Buffers
-nnoremap("L", ":bnext<CR>", opt)
-nnoremap("H", ":bprevious<CR>", opt)
+-- nnoremap("L", ":bnext<CR>", opt)
+-- nnoremap("H", ":bprevious<CR>", opt)
 nnoremap("<leader>c", ":bp|bd#<CR>", opt)
 -- Buffers
+
+-- Search
+nnoremap("n", "nzz", opt)
+nnoremap("N", "Nzz", opt)
+nnoremap("<C-d>", "<C-d>zz")
+nnoremap("<C-u>", "<C-u>zz")
+-- Search

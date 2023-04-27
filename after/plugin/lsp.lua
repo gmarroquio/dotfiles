@@ -126,4 +126,5 @@ lsp.tsserver.setup({
 	capabilities = capabilities,
 })
 
+lsp.svelte.setup({})
 lsp.tailwindcss.setup({})
