@@ -68,6 +68,8 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	use("windwp/nvim-ts-autotag")
+
 	use({
 		"zbirenbaum/copilot.lua",
 		cmd = "Copilot",
@@ -87,7 +89,6 @@ return require("packer").startup(function(use)
 			require("copilot_cmp").setup()
 		end,
 	})
-
 	if packer_bootstrap then
 		require("packer").sync()
 	end

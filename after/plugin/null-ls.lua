@@ -8,7 +8,9 @@ local formatting = null_ls.builtins.formatting
 null_ls.setup({
 	debug = false,
 	sources = {
-		formatting.prettierd,
+		formatting.prettierd.with({
+			extra_filetypes = { "svelte" },
+		}),
 		formatting.stylua,
 	},
 })

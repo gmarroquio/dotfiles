@@ -22,6 +22,7 @@ ts.setup({
 		"css",
 		"html",
 		"lua",
+		"svelte",
 		"typescript",
 		"javascript",
 		"prisma",
