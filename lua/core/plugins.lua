@@ -70,25 +70,6 @@ return require("packer").startup(function(use)
 
 	use("windwp/nvim-ts-autotag")
 
-	use({
-		"zbirenbaum/copilot.lua",
-		cmd = "Copilot",
-		event = "InsertEnter",
-		config = function()
-			require("copilot").setup({
-				-- suggestion = { enabled = false },
-				panel = { enabled = false },
-			})
-		end,
-	})
-
-	use({
-		"zbirenbaum/copilot-cmp",
-		after = { "copilot.lua" },
-		config = function()
-			require("copilot_cmp").setup()
-		end,
-	})
 	if packer_bootstrap then
 		require("packer").sync()
 	end
