@@ -53,5 +53,26 @@ local cmp = require('cmp')
 cmp.setup({
   mapping = {
     ['<CR>'] = cmp.mapping.confirm({ select = false }),
+    ['<S-Tab>'] = function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      else
+        fallback()
+      end
+    end,
+    ['<Tab>'] = function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      else
+        fallback()
+      end
+    end,
+    ['<C-g>'] = function()
+      if cmp.visible_docs() then
+        cmp.close_docs()
+      else
+        cmp.open_docs()
+      end
+    end
   }
 })

@@ -13,7 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
   "folke/neodev.nvim",
-  { "ellisonleao/gruvbox.nvim", priority = 1000 },
+  { "ellisonleao/gruvbox.nvim",    priority = 1000 },
   {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v2.x',
@@ -30,8 +30,19 @@ local plugins = {
     }
   },
   {
+    'nvimdev/lspsaga.nvim',
+  },
+  {
     'nvim-treesitter/nvim-treesitter', build = ":TSUpdate", cmd = { "TSUpdateSync" }
-  }
+  },
+  { 'echasnovski/mini.pairs',      version = '*' },
+  { 'echasnovski/mini.hipatterns', version = '*' },
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "BurntSushi/ripgrep" },
+  },
+  'christoomey/vim-tmux-navigator',
+  "lewis6991/gitsigns.nvim"
 }
 
 require("lazy").setup(plugins)
