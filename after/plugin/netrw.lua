@@ -21,10 +21,10 @@ netrw.setup({
 	mappings = {
 		["a"] = function(p)
 			local name = vim.fn.input("filename: ")
-			local cmd = "!touch "
-			vim.cmd("silent " .. cmd .. p.dir .. "/" .. name)
+			local full_name = p.dir .. "/" .. name
+			vim.cmd('silent !mkdir -p "$(dirname "' .. full_name .. '")" && touch "' .. full_name .. '"')
 		end,
-	}, -- Custom key mappings
+	},
 })
 
 vim.g.last_buffer_number = vim.api.nvim_buf_get_number(0)

@@ -9,7 +9,19 @@ null_ls.setup({
 	debug = false,
 	sources = {
 		formatting.prettierd.with({
-			extra_filetypes = { "svelte" },
+			extra_filetypes = {
+				"svelte",
+				"css",
+				"html",
+				"javascript",
+				"json",
+				"jsonc",
+				"markdown",
+				"scss",
+				"typescript",
+				"typescriptreact",
+			},
+			disabled_filetypes = { "lua", "yaml" },
 		}),
 		formatting.stylua,
 	},
