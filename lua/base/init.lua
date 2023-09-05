@@ -1,5 +1,4 @@
-require("base.plugins")
-require("base.mappings")
+require('base.plugins')
 
 vim.opt.clipboard:append({ 'unnamedplus' })
 
@@ -22,3 +21,5 @@ vim.opt.hlsearch = false
 vim.g.airline_theme = "gruvbox"
 vim.cmd("colorscheme gruvbox")
 vim.cmd("hi Normal ctermbg=none guibg=none")
+
+require('base.mappings')
