@@ -12,7 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-	"folke/neodev.nvim",
+	{ "folke/neodev.nvim" },
 	{ "ellisonleao/gruvbox.nvim", priority = 1000 },
 	{
 		"VonHeikemen/lsp-zero.nvim",
@@ -29,9 +29,7 @@ local plugins = {
 			{ "L3MON4D3/LuaSnip" }, -- Required
 		},
 	},
-	{
-		"nvimdev/lspsaga.nvim",
-	},
+	{ "nvimdev/lspsaga.nvim" },
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
@@ -44,7 +42,7 @@ local plugins = {
 
 	-- git plugins
 	{ "tpope/vim-fugitive" },
-	"lewis6991/gitsigns.nvim",
+	{ "lewis6991/gitsigns.nvim" },
 
 	{ "echasnovski/mini.pairs", version = "*" },
 	{ "echasnovski/mini.comment", version = "*" },
@@ -54,12 +52,12 @@ local plugins = {
 		"nvim-telescope/telescope.nvim",
 		dependencies = { "nvim-lua/plenary.nvim", "BurntSushi/ripgrep" },
 	},
-	"christoomey/vim-tmux-navigator",
+	{ "christoomey/vim-tmux-navigator" },
 
 	-- formatter
-	"MunifTanjim/prettier.nvim",
-	"mhartington/formatter.nvim",
-	"MunifTanjim/eslint.nvim",
+	{ "MunifTanjim/prettier.nvim" },
+	{ "mhartington/formatter.nvim" },
+	{ "MunifTanjim/eslint.nvim" },
 
 	-- Fold plugins
 	{ "kevinhwang91/nvim-ufo", dependencies = { "kevinhwang91/promise-async" } },

@@ -6,7 +6,11 @@ vim.keymap.set("n", "<C-s>", ":w<CR>", { silent = true })
 vim.keymap.set("i", "<C-s>", "<Esc>:w<CR>", { silent = true })
 
 -- buffer movment
-vim.keymap.set("n", "<Leader>c", ":bdelete<CR>", { silent = true })
+vim.keymap.set("n", "<Leader>c", function()
+	local number = vim.fn.bufnr()
+	vim.cmd("bnext")
+	vim.cmd("bd " .. number)
+end, { silent = true })
 vim.keymap.set("n", "<S-l>", ":bnext<CR>", { silent = true })
 vim.keymap.set("n", "<S-h>", ":bprevious<CR>", { silent = true })
 

@@ -3,7 +3,7 @@
 -- 	local search_stat = sinfo.incomplete > 0 and "[?/?]"
 -- 		or sinfo.total > 0 and ("[%s/%s]"):format(sinfo.current, sinfo.total)
 -- 		or nil
--- 
+--
 -- 	if search_stat ~= nil then
 -- 		-- add search_stat to statusline/winbar
 -- 	end
@@ -17,7 +17,7 @@ vim.opt.nu = true
 vim.opt.relativenumber = true
 vim.opt.signcolumn = "number"
 vim.opt.wrap = false
-vim.opt.whichwrap = "lh"
+vim.opt.whichwrap = "><s"
 
 vim.opt.smartindent = true
 
