@@ -1,30 +1,50 @@
-require("nvim-treesitter.configs").setup({
-	ensure_installed = {
-		"c",
-		"lua",
-		"vim",
-		"vimdoc",
-		"query",
-		"javascript",
-		"typescript",
-		"tsx",
-		"svelte",
-		"markdown",
-		"markdown_inline",
-	},
-	sync_install = false,
+local status, ts = pcall(require, "nvim-treesitter.configs")
+if not status then
+	return
+end
+
+ts.setup({
 	highlight = {
 		enable = true,
-		additional_vim_regex_highlighting = false,
+		additional_vim_regex_highlighting = true,
 	},
-	autotag = {
+	folding = {
 		enable = true,
-		enable_close_on_slash = false,
 	},
-	context_commentstring = {
+	indent = {
 		enable = true,
+	},
+	auto_install = true,
+	sync_install = false,
+	ignore_install = {},
+	modules = {},
+	ensure_installed = {
+		"vimdoc",
+		"tsx",
+		"toml",
+		"fish",
+		"php",
+		"json",
+		"graphql",
+		"markdown",
+		"markdown_inline",
+		"yaml",
+		"swift",
+		"css",
+		"html",
+		"lua",
+		"typescript",
+		"javascript",
+		"prisma",
+		"svelte",
+	},
+	rainbow = {
+		enable = true,
+		extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
+		max_file_lines = 1000, -- Do not enable for files with more than 1000 lines, int
 	},
 })
 
-require("ts_context_commentstring").setup({})
-vim.g.skip_ts_context_commentstring_module = true
+local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+parser_config.tsx.filetype_to_parsername =
+	{ "javascript", "typescript.tsx", "typescript", "javascript.jsx", "typescriptreact", "graphql" }

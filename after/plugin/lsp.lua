@@ -1,58 +1,17 @@
 require("neodev").setup({})
-
 local lsp_zero = require("lsp-zero")
-local lspconfig = require("lspconfig")
-local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
-local lsp = lsp_zero.preset({})
 
-lsp.on_attach(function(client, bufnr)
-	lsp.default_keymaps({ buffer = bufnr })
+lsp_zero.on_attach(function(client, bufnr)
+	-- see :help lsp-zero-keybindings
+	-- to learn the available actions
+	lsp_zero.default_keymaps({ buffer = bufnr })
 end)
 
-lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
-
-lspconfig.svelte.setup({
-	capabilities = lsp_capabilities,
-	on_attach = function(_, bufnr)
-		lsp_zero.default_keymaps({ buffer = bufnr })
-	end,
-})
-
-lspconfig.tsserver.setup({
-	capabilities = lsp_capabilities,
-	on_attach = function(_, bufnr)
-		lsp_zero.default_keymaps({ buffer = bufnr })
-	end,
-})
-
-lspconfig.tailwindcss.setup({
-	capabilities = lsp_capabilities,
-	on_attach = function(_, bufnr)
-		lsp_zero.default_keymaps({ buffer = bufnr })
-	end,
-})
-
-lsp.setup()
-
-local cmp = require("cmp")
-
-cmp.setup({
-	mapping = {
-		["<CR>"] = cmp.mapping.confirm({ select = false }),
-		["<S-Tab>"] = function(fallback)
-			if cmp.visible() then
-				cmp.select_prev_item()
-			else
-				fallback()
-			end
-		end,
-		["<Tab>"] = function(fallback)
-			if cmp.visible() then
-				cmp.select_next_item()
-			else
-				fallback()
-			end
-		end,
-		["<C-x>"] = cmp.mapping.complete(),
+-- to learn how to use mason.nvim with lsp-zero
+-- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
+require("mason").setup({})
+require("mason-lspconfig").setup({
+	handlers = {
+		lsp_zero.default_setup,
 	},
 })
