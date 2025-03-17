@@ -7,4 +7,13 @@ vim.keymap.set("n", "a", function()
 	vim.cmd("silent :e")
 end, { buffer = true })
 
+vim.keymap.set("n", "dd", function()
+	local full_dir = vim.fn.expand("%:p")
+	local current_line = vim.api.nvim_get_current_line()
+	local full_name = full_dir .. current_line
+
+	vim.cmd("silent !rm -rf " .. full_name)
+	vim.cmd("silent :e")
+end, { buffer = true })
+
 vim.keymap.set("n", "<Leader>e", ":Rex<CR>", { buffer = true, silent = true })
