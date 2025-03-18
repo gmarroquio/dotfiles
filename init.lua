@@ -1,4 +1,4 @@
-require("config.lazy")
+require("config.base")
 require("config.mappings")
 require("config.autocmd")
-require("config.base")
+require("config.lazy")

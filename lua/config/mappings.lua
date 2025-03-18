@@ -39,10 +39,3 @@ vim.keymap.set("n", "<Leader>h", function()
 		vim.cmd("set hls")
 	end
 end, { silent = true })
-
-vim.api.nvim_set_keymap(
-	"n",
-	"<leader>ks",
-	":lua require('keep-it-secret').toggle()<CR>",
-	{ noremap = true, silent = true }
-)
