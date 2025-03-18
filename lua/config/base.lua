@@ -25,12 +25,7 @@ vim.opt.hlsearch = false
 vim.opt.scrolloff = 8
 
 vim.o.foldlevel = 99
--- vim.o.foldlevelstart = 1
 vim.o.foldcolumn = "0"
-vim.o.foldenable = true
+--vim.o.foldenable = true
 vim.o.foldmethod = "expr"
 vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-
-vim.g.airline_theme = "gruvbox"
-vim.cmd("colorscheme gruvbox")
-vim.cmd("hi Normal ctermbg=none guibg=none")
