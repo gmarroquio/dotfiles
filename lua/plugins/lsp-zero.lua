@@ -27,43 +27,41 @@ return {
 
 		-- Autocompletion
 		{
-			"hrsh7th/nvim-cmp",
-			dependencies = {
-				"hrsh7th/cmp-buffer",
-				"hrsh7th/cmp-path",
-			},
-			opts = function()
-				local cmp = require("cmp")
-				return {
-					sources = {
-						{ name = "nvim_lsp" },
-					},
-					mapping = cmp.mapping.preset.insert({
-						["<CR>"] = cmp.mapping.confirm({ select = false }),
-						["<S-Tab>"] = function(fallback)
-							if cmp.visible() then
-								cmp.select_prev_item()
-							else
-								fallback()
-							end
-						end,
-						["<Tab>"] = function(fallback)
-							if cmp.visible() then
-								cmp.select_next_item()
-							else
-								fallback()
-							end
-						end,
-						["<C-x>"] = cmp.mapping.complete(),
-					}),
+			{
+				"hrsh7th/nvim-cmp",
+				opts = function()
+					local cmp = require("cmp")
+					return {
+						sources = {
+							{ name = "nvim_lsp" },
+						},
+						mapping = cmp.mapping.preset.insert({
+							["<CR>"] = cmp.mapping.confirm({ select = false }),
+							["<S-Tab>"] = function(fallback)
+								if cmp.visible() then
+									cmp.select_prev_item()
+								else
+									fallback()
+								end
+							end,
+							["<Tab>"] = function(fallback)
+								if cmp.visible() then
+									cmp.select_next_item()
+								else
+									fallback()
+								end
+							end,
+							["<C-x>"] = cmp.mapping.complete(),
+						}),
 
-					snippet = {
-						expand = function(args)
-							require("luasnip").lsp_expand(args.body)
-						end,
-					},
-				}
-			end, -- Required
+						snippet = {
+							expand = function(args)
+								require("luasnip").lsp_expand(args.body)
+							end,
+						},
+					}
+				end, -- Required
+			},
 			{ "hrsh7th/cmp-nvim-lsp" }, -- Required
 			{ "L3MON4D3/LuaSnip" }, -- Required
 		},
