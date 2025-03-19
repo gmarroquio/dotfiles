@@ -1,5 +1,6 @@
 return {
 	"lewis6991/gitsigns.nvim",
+	lazy = false,
 	keys = {
 		{ "gph", "<cmd>Gitsigns preview_hunk<CR>" },
 	},

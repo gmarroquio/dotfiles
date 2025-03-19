@@ -1,45 +1,59 @@
 return {
 	"nvim-telescope/telescope.nvim",
 	dependencies = { "nvim-lua/plenary.nvim", "BurntSushi/ripgrep" },
-	opts = {
-		defaults = {
-			file_ignore_patterns = { "node_modules", "dist" },
+	keys = {
+		{
+			"<leader>ff",
+			function()
+				require("telescope.builtin").find_files({ path_display = { "truncate" } })
+			end,
+		},
+		{
+			"<leader>bi",
+			function()
+				require("telescope.builtin").current_buffer_fuzzy_find({ default_text = vim.fn.expand("<cword>") })
+			end,
+		},
+		{
+			"<leader>fi",
+			function()
+				require("telescope.builtin").live_grep({ default_text = vim.fn.expand("<cword>") })
+			end,
+		},
+		{ "<leader>fg", require("telescope.builtin").live_grep },
+		{ "<leader>fb", require("telescope.builtin").buffers },
+		{ "<leader>fh", require("telescope.builtin").help_tags },
+		{ "<leader>fr", require("telescope.builtin").resume },
+		{ "<leader>bb", require("telescope.builtin").current_buffer_fuzzy_find },
+	},
+	opts = function()
+		local actions = require("telescope.actions")
 
-			mappings = {
-				n = {
-					["<c-d>"] = require("telescope.actions").delete_buffer,
-				}, -- n
-				i = {
-					["<C-h>"] = "which_key",
-					["<c-d>"] = require("telescope.actions").delete_buffer,
+		return {
+			defaults = {
+				file_ignore_patterns = { "node_modules", "dist" },
+
+				mappings = {
+					n = {
+						["<C-d>"] = actions.delete_buffer,
+						["<C-h>"] = actions.preview_scrolling_left,
+						["<C-j>"] = actions.preview_scrolling_down,
+						["<C-k>"] = actions.preview_scrolling_up,
+						["<C-l>"] = actions.preview_scrolling_right,
+					}, -- n
+					i = {
+						["<C-d>"] = require("telescope.actions").delete_buffer,
+					},
 				},
 			},
-		},
-		pickers = {
-			buffers = {
-				initial_mode = "normal",
+			pickers = {
+				buffers = {
+					initial_mode = "normal",
+				},
+				lsp_references = {
+					initial_mode = "normal",
+				},
 			},
-			lsp_references = {
-				initial_mode = "normal",
-			},
-		},
-	},
-	config = function()
-		local builtin = require("telescope.builtin")
-
-		vim.keymap.set("n", "<leader>ff", function()
-			builtin.find_files({ path_display = { "truncate" } })
-		end, {})
-		vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
-		vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
-		vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
-		vim.keymap.set("n", "<leader>fr", builtin.resume, {})
-		vim.keymap.set("n", "<leader>bi", function()
-			builtin.current_buffer_fuzzy_find({ default_text = vim.fn.expand("<cword>") })
-		end, {})
-		vim.keymap.set("n", "<leader>bb", builtin.current_buffer_fuzzy_find, {})
-		vim.keymap.set("n", "<leader>fi", function()
-			builtin.live_grep({ default_text = vim.fn.expand("<cword>") })
-		end, {})
+		}
 	end,
 }

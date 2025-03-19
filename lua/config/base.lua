@@ -26,6 +26,6 @@ vim.opt.scrolloff = 8
 
 vim.o.foldlevel = 99
 vim.o.foldcolumn = "0"
---vim.o.foldenable = true
+vim.o.foldenable = true
 vim.o.foldmethod = "expr"
 vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
