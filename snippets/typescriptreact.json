@@ -1,0 +1,1 @@
+{"client_page":{"prefix":"client_page","body":["'use client'","","export default function Page() {","","  return <div>New Page<\/div>","}"]}}
