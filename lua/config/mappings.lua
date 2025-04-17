@@ -30,7 +30,7 @@ vim.keymap.set("n", "n", "nzz", { silent = true })
 vim.keymap.set("n", "N", "Nzz", { silent = true })
 
 -- copy
-vim.keymap.set("x", "p", '"_dP')
+-- vim.keymap.set("x", "p", '"_dP')
 
 vim.keymap.set("n", "<Leader>h", function()
 	if vim.v.hlsearch == 1 then
