@@ -1,5 +1,6 @@
 return {
 	"nvimdev/lspsaga.nvim",
+	dependencies = {},
 	keys = {
 		{
 			"ge",

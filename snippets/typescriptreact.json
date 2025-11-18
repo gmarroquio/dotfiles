@@ -1,1 +1,1 @@
-{"client_page":{"prefix":"client_page","body":["'use client'","","export default function Page() {","","  return <div>New Page<\/div>","}"]}}
+{"page":{"prefix":"cp","body":["export default function Page(){","  return (${1:})","}"]},"component":{"prefix":"co","body":["export const ${1:component} = () => {","  return <div>new component</div>","}"]},"client_page":{"body":["'use client'","","export default function Page() {","","  return <div>New Page</div>","}"],"prefix":"cp"}}

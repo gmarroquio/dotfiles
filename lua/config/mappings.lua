@@ -1,4 +1,4 @@
-vim.keymap.set("n", "<Leader>q", ":q<CR>", { silent = true }) -- close window
+vim.keymap.set("n", "<Leader>q", ":q<CR>", { silent = true })  -- close window
 vim.keymap.set("n", "<Leader>e", ":Ex<CR>", { silent = true }) -- open netrw
 
 -- save
@@ -7,9 +7,13 @@ vim.keymap.set("i", "<C-s>", "<Esc>:w<CR>", { silent = true })
 
 -- buffer movment
 vim.keymap.set("n", "<Leader>c", function()
-	local bufToDelete = vim.fn.bufnr()
-	vim.cmd("bnext")
-	vim.cmd("bd! " .. bufToDelete)
+  local bufToDelete = vim.fn.bufnr()
+  vim.cmd("bnext")
+  if vim.api.nvim_get_option_value("filetype", { buf = bufToDelete }) ~= " " then
+    vim.cmd("bd! " .. bufToDelete)
+  else
+    vim.cmd("bd! " .. bufToDelete)
+  end
 end, { silent = true })
 
 vim.keymap.set("n", "<S-l>", ":bnext<CR>", { silent = true })
@@ -33,9 +37,15 @@ vim.keymap.set("n", "N", "Nzz", { silent = true })
 -- vim.keymap.set("x", "p", '"_dP')
 
 vim.keymap.set("n", "<Leader>h", function()
-	if vim.v.hlsearch == 1 then
-		vim.cmd("nohls")
-	else
-		vim.cmd("set hls")
-	end
+  if vim.v.hlsearch == 1 then
+    vim.cmd("nohls")
+  else
+    vim.cmd("set hls")
+  end
+end, { silent = true })
+
+-- Terminal
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+vim.keymap.set("n", "<leader>x", function()
+  vim.cmd("botright split | resize 25 | terminal")
 end, { silent = true })
