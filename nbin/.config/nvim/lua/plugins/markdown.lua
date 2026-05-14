@@ -1,4 +1,8 @@
 return {
 	"MeanderingProgrammer/render-markdown.nvim",
-	opts = {},
+	opts = {
+		latex = {
+			enabled = false,
+		},
+	},
 }

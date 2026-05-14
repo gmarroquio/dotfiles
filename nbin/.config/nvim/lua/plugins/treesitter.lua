@@ -33,7 +33,6 @@ return {
 			"markdown",
 			"markdown_inline",
 			"yaml",
-			"swift",
 			"css",
 			"html",
 			"lua",

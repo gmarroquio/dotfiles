@@ -23,6 +23,7 @@ vim.opt.colorcolumn = "80"
 vim.opt.cursorline = true
 vim.opt.hlsearch = false
 vim.opt.scrolloff = 8
+vim.opt.autoread = true
 
 vim.o.foldlevel = 99
 vim.o.foldcolumn = "0"
